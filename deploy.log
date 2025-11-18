@@ -1,0 +1,1 @@
+(dryrun) upload: ./deploy.log to s3://suraj-learn-s3-bucket/deploy.log
