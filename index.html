@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Static Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Simple static website hosted on S3 — responsive and clean." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Suraj kadam Site</a>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn-outline">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Fast, simple, reliable.</h1>
+        <p>Host this static site on Amazon S3 and optionally serve it globally with CloudFront.</p>
+        <div class="hero-actions">
+          <a href="#features" class="btn">See Features</a>
+          <a href="#about" class="btn btn-light">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="container features">
+      <article class="card">
+        <h3>Secure</h3>
+        <p>Control access with IAM, bucket policies, and encryption (SSE-S3 / SSE-KMS).</p>
+      </article>
+      <article class="card">
+        <h3>Fast</h3>
+        <p>Serve static assets with low latency; add CloudFront for a global CDN.</p>
+      </article>
+      <article class="card">
+        <h3>Cheap</h3>
+        <p>Low cost storage with lifecycle rules to move older objects to cheaper tiers.</p>
+      </article>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About this demo</h2>
+      <p>This template is minimal, responsive and easy to host on S3.</p>
+
+      <div class="two-col">
+        <div>
+          <h4>Ready for CI/CD</h4>
+          <p>Use your pipeline to upload `index.html`, `styles.css`, and assets to S3 after each build.</p>
+        </div>
+        <div>
+          <h4>Custom Domain</h4>
+          <p>Optionally attach a domain via Route 53 and serve through CloudFront for SSL and caching.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Form demo — connect it to Lambda or a service');">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Your name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="4" placeholder="A short message"></textarea>
+        </label>
+        <div class="form-actions">
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Suraj Kadam — Static site demo</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // small JS for year and simple mobile nav toggle
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const ham = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    ham.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+</body>
+</html>
